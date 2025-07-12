@@ -1,0 +1,14 @@
+[
+  { "id": "01", "emri": "Shkoder", "kryeqytet": "Shkoder", "x": 100, "y": 80 },
+  { "id": "02", "emri": "Kukes", "kryeqytet": "Kukes", "x": 170, "y": 70 },
+  { "id": "03", "emri": "Lezhe", "kryeqytet": "Lezhe", "x": 120, "y": 130 },
+  { "id": "04", "emri": "Diber", "kryeqytet": "Peshkopi", "x": 200, "y": 140 },
+  { "id": "05", "emri": "Tirane", "kryeqytet": "Tirane", "x": 150, "y": 200 },
+  { "id": "06", "emri": "Durres", "kryeqytet": "Durres", "x": 110, "y": 180 },
+  { "id": "07", "emri": "Elbasan", "kryeqytet": "Elbasan", "x": 210, "y": 210 },
+  { "id": "08", "emri": "Fier", "kryeqytet": "Fier", "x": 130, "y": 260 },
+  { "id": "09", "emri": "Berat", "kryeqytet": "Berat", "x": 180, "y": 280 },
+  { "id": "10", "emri": "Vlore", "kryeqytet": "Vlore", "x": 90, "y": 320 },
+  { "id": "11", "emri": "Gjirokaster", "kryeqytet": "Gjirokaster", "x": 230, "y": 350 },
+  { "id": "12", "emri": "Korce", "kryeqytet": "Korce", "x": 260, "y": 300 }
+]
