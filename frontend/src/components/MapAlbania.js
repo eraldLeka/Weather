@@ -41,9 +41,23 @@ function MapAlbania({ onSelectCity }) {
   return (
     <div
       onClick={handleClick}
-      style={{ cursor: "pointer", maxWidth: "600px", height: "auto" }}
+      style={{ 
+         cursor: "pointer",
+    maxWidth: "900px",
+    height: "auto",
+    border: "none",     
+    padding: 0,
+    margin: 0,
+
+      }}
     >
-      <SVG src={mapSvg} />
+      <SVG src={mapSvg}
+        style={{
+          width:"100%",
+          height:"auto",
+          display:"block",
+        }}
+      />
     </div>
   );
 }
