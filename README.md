@@ -1,33 +1,33 @@
 # Weather Albania 🌤️
 
-Një aplikacion web full-stack për parashikimin e motit në Shqipëri. Projekti përfshin një hartë interaktive të Shqipërisë dhe shfaq informacionin e motit për 12 qarqet kryesore.
+A full-stack web application for weather forecasting in Albania. The project includes an interactive map of Albania and displays weather information for the 12 main districts.
 
-## 📋 Përmbajtja
+## 📋 Table of Contents
 
-- [Karakteristikat](#karakteristikat)
-- [Arkitektura](#arkitektura)
-- [Instalimi dhe Ekzekutimi](#instalimi-dhe-ekzekutimi)
-- [Konfigurimi](#konfigurimi)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Installation and Setup](#installation-and-setup)
+- [Configuration](#configuration)
 - [API Reference](#api-reference)
-- [Struktura e Projektit](#struktura-e-projektit)
-- [Teknologjitë e Përdorura](#teknologjitë-e-përdorura)
-- [Kontributi](#kontributi)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
 
-## ✨ Karakteristikat
+## ✨ Features
 
-- **Hartë Interaktive**: Hartë e Shqipërisë me 12 qarqet e klikueshme
-- **Të dhëna Real-time**: Informacion i motit në kohë reale nga WeatherAPI
-- **Design Responsiv**: Interface e optimizuar për desktop dhe mobile
-- **API RESTful**: Backend Flask me endpoints të strukturuar
-- **Lokalizim**: Interface në gjuhën shqipe
+- **Interactive Map**: Map of Albania with 12 clickable districts
+- **Real-time Data**: Real-time weather information from WeatherAPI
+- **Responsive Design**: Interface optimized for desktop and mobile
+- **RESTful API**: Flask backend with structured endpoints
+- **Localization**: Interface in Albanian language
 
-### Të dhënat e motit përfshijnë:
-- Temperatura aktuale (°C)
-- Lagështia (%)
-- Përshkrimi i motit
-- Ikona e motit
+### Weather data includes:
+- Current temperature (°C)
+- Humidity (%)
+- Weather description
+- Weather icon
 
-## 🏗️ Arkitektura
+## 🏗️ Architecture
 
 ```
 ┌─────────────────┐    HTTP/REST    ┌─────────────────┐    API Call    ┌─────────────────┐
@@ -36,81 +36,81 @@ Një aplikacion web full-stack për parashikimin e motit në Shqipëri. Projekti
 └─────────────────┘                 └─────────────────┘                └─────────────────┘
 ```
 
-- **Frontend**: React.js me komponente modulare
-- **Backend**: Flask me blueprint pattern
-- **External API**: WeatherAPI për të dhënat e motit
-- **Data Format**: JSON për të gjitha komunikacionet
+- **Frontend**: React.js with modular components
+- **Backend**: Flask with blueprint pattern
+- **External API**: WeatherAPI for weather data
+- **Data Format**: JSON for all communications
 
-## 🚀 Instalimi dhe Ekzekutimi
+## 🚀 Installation and Setup
 
-### Parashtesa
+### Prerequisites
 - Node.js (v16+)
 - Python (v3.8+)
-- npm ose yarn
+- npm or yarn
 - Git
 
-### 1. Klononi projektin
+### 1. Clone the project
 ```bash
 git clone <repository-url>
 cd weather-albania
 ```
 
-### 2. Konfiguroni Backend-in
+### 2. Configure Backend
 
 ```bash
-# Navigoni në backend
+# Navigate to backend
 cd backend
 
-# Krijoni virtual environment
+# Create virtual environment
 python -m venv venv
 
-# Aktivizoni virtual environment
+# Activate virtual environment
 # Linux/Mac:
 source venv/bin/activate
 # Windows:
 venv\Scripts\activate
 
-# Instaloni dependencitë
+# Install dependencies
 pip install -r requirements.txt
 
-# Krijoni .env file
+# Create .env file
 cp .env.example .env
-# Shtoni API key në .env (shiko sekcionin Konfigurimi)
+# Add API key to .env (see Configuration section)
 ```
 
-### 3. Konfiguroni Frontend-in
+### 3. Configure Frontend
 
 ```bash
-# Në një terminal të ri, navigoni në frontend
+# In a new terminal, navigate to frontend
 cd frontend
 
-# Instaloni dependencitë
+# Install dependencies
 npm install
 ```
 
-### 4. Ekzekutoni aplikacionin
+### 4. Run the application
 
 **Backend (Terminal 1):**
 ```bash
 cd backend
 python run.py
 ```
-Backend do të jetë i disponueshëm në: `http://localhost:5000`
+Backend will be available at: `http://localhost:5000`
 
 **Frontend (Terminal 2):**
 ```bash
 cd frontend
 npm start
 ```
-Frontend do të jetë i disponueshëm në: `http://localhost:3000`
+Frontend will be available at: `http://localhost:3000`
 
-## ⚙️ Konfigurimi
+## ⚙️ Configuration
 
-### API Key për WeatherAPI
+### API Key for WeatherAPI
 
-1. Regjistrohuni në [WeatherAPI.com](https://www.weatherapi.com/)
-2. Merr API key-in tuaj falas
-3. Krijoni file `.env` në direktorinë `backend/`:
+1. Register at [WeatherAPI.com](https://www.weatherapi.com/)
+2. Get your free API key
+3. Create `.env` file in the `backend/` directory:
 
 ```env
 WEATHERAPI_API_KEY=your_api_key_here
@@ -119,9 +119,9 @@ SECRET_KEY=your_flask_secret_key_here
 
 ### Environment Variables
 
-| Variable | Përshkrimi | Vlera Default |
-|----------|------------|---------------|
-| `WEATHERAPI_API_KEY` | API key nga WeatherAPI.com | - |
+| Variable | Description | Default Value |
+|----------|-------------|---------------|
+| `WEATHERAPI_API_KEY` | API key from WeatherAPI.com | - |
 | `SECRET_KEY` | Flask secret key | "default" |
 | `FLASK_ENV` | Environment mode | "development" |
 
@@ -146,13 +146,13 @@ GET /health
 }
 ```
 
-#### 2. Merr të dhënat e motit
+#### 2. Get weather data
 ```http
 GET /weather?city={city_name}
 ```
 
 **Parameters:**
-- `city` (required): Emri i qytetit (p.sh., "Tirane", "Durres")
+- `city` (required): City name (e.g., "Tirane", "Durres")
 
 **Response Success (200):**
 ```json
@@ -168,7 +168,7 @@ GET /weather?city={city_name}
 **Response Error (400):**
 ```json
 {
-  "error": "Parametri 'city' mungon në kërkesë"
+  "error": "Parameter 'city' is missing from request"
 }
 ```
 
@@ -179,7 +179,7 @@ GET /weather?city={city_name}
 }
 ```
 
-## 📁 Struktura e Projektit
+## 📁 Project Structure
 
 ```
 weather-albania/
@@ -211,19 +211,19 @@ weather-albania/
 └── README.md             # Project documentation
 ```
 
-## 🛠️ Teknologjitë e Përdorura
+## 🛠️ Technologies Used
 
 ### Frontend
-- **React 19.1.0** - Library kryesor
+- **React 19.1.0** - Main library
 - **React DOM** - DOM manipulation
-- **React Icons** - Ikona për interface
-- **React Simple Maps** - Komponente për harta
-- **CSS3** - Styling dhe animacione
+- **React Icons** - Interface icons
+- **React Simple Maps** - Map components
+- **CSS3** - Styling and animations
 
 ### Backend
 - **Flask 2.3.2** - Web framework
 - **Flask-CORS** - Cross-origin resource sharing
-- **Requests** - HTTP client për API calls
+- **Requests** - HTTP client for API calls
 - **Python-dotenv** - Environment variables management
 
 ### External Services
@@ -234,9 +234,9 @@ weather-albania/
 - **Jest** - Testing framework
 - **ESLint** - Code linting
 
-## 🌍 Qarqet e Mbështetura
+## 🌍 Supported Districts
 
-Aplikacioni mbështet të dhënat e motit për 12 qarqet e Shqipërisë:
+The application supports weather data for 12 districts of Albania:
 
 1. **Shkodër** - Shkodër
 2. **Kukës** - Kukës  
@@ -255,41 +255,41 @@ Aplikacioni mbështet të dhënat e motit për 12 qarqet e Shqipërisë:
 
 ### Common Issues
 
-1. **Backend nuk starton**: Kontrolloni nëse API key është vendosur në `.env`
-2. **CORS errors**: Sigurohuni që Flask-CORS është instaluar dhe konfiguruar
-3. **API errors**: Verifikoni konektivitetin me internet dhe validitetin e API key
+1. **Backend won't start**: Check if API key is set in `.env`
+2. **CORS errors**: Ensure Flask-CORS is installed and configured
+3. **API errors**: Verify internet connectivity and API key validity
 
 ### Logs
-Backend printon debug informacion në console për API calls dhe responses.
+Backend prints debug information in console for API calls and responses.
 
-## 📈 Përmirësime të Ardhshme
+## 📈 Future Improvements
 
-- [ ] Shtimi i parashikimit 7-ditor
-- [ ] Geolocalization automatike
-- [ ] Tema dark/light mode
-- [ ] Cache për API responses
+- [ ] Add 7-day weather forecast
+- [ ] Automatic geolocation
+- [ ] Dark/light theme mode
+- [ ] Cache for API responses
 - [ ] PWA support
-- [ ] Notifikime për moti ekstrem
-- [ ] Grafika për trendet e temperaturës
+- [ ] Extreme weather notifications
+- [ ] Temperature trend charts
 
-## 📄 Licensa
+## 📄 License
 
-Ky projekt është i licensuar nën [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
-## 🤝 Kontributi
+## 🤝 Contributing
 
-Kontributet janë të mirëpritura! Ju lutem:
+Contributions are welcome! Please:
 
-1. Fork projektin
-2. Krijoni një branch për feature-in tuaj (`git checkout -b feature/AmazingFeature`)
-3. Commit ndryshimet (`git commit -m 'Add some AmazingFeature'`)
-4. Push në branch (`git push origin feature/AmazingFeature`)
-5. Hapni një Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📧 Kontakt
+## 📧 Contact
 
-Për pyetje ose probleme, ju lutem hapni një issue në GitHub.
+For questions or issues, please open an issue on GitHub.
 
 ---
 
-**Zhvilluar me ❤️ për Shqipërinë** 🇦🇱
+**Developed with ❤️ for Albania** 🇦🇱
