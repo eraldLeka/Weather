@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Weather Albania - Setup Script
 # This script automates the installation process for the Weather Albania project
@@ -70,3 +71,4 @@ echo "   - Frontend: cd frontend && npm start"
 echo ""
 echo "The application will be available at:"
 echo "- Frontend: http://localhost:3000"
+echo "- Backend API: http://localhost:5000"
